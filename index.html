@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grid Cards</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h1>Test</h1>
+    <div class="container">
+      <div class="grid" id="shuffleShort">
+        <div class="g-col-3">1</div>
+        <div class="g-col-3">2</div>
+        <div class="g-col-3">3</div>
+        <div class="g-col-3">4</div>
+        <div class="g-col-3">5</div>
+        <div class="g-col-3">6</div>
+        <div class="g-col-3">7</div>
+        <div class="g-col-3">8</div>
+        <div class="g-col-3">9</div>
+      </div>
+      <button
+        id="shuffle"
+        type="button"
+        class="btn btn-primary"
+        onclick="shuffle()"
+      >
+        shuffle
+      </button>
+      <button
+        id="short"
+        type="button"
+        class="btn btn-secondary"
+        onclick="Short()"
+      >
+        Short
+      </button>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      src = "script.js";
+    </script>
+
+    <!-- <script>
+    function shuffle{
+
+    }
+</script> -->
+
+    <script>
+      var List = document.getElementById(shuffleShort);
+      button = document.getElementById(shuffle);
+
+      function shuffle(items) {
+        var cached = items.slice(0),
+          temp,
+          i = cached.length,
+          rand;
+        while (--i) {
+          rand = Math.floor(i * Math.random());
+          temp = cached[rand];
+          cached[rand] = cached[i];
+          cached[i] = temp;
+        }
+        return cached;
+      }
+
+      function shuffleNodes() {
+        var nodes = list.children,
+          i = 0;
+        nodes = Array.prototype.slice.call(nodes);
+        nodes = shuffle(nodes);
+        while (i < nodes.length) {
+          list.appendChild(nodes[i]);
+          ++i;
+        }
+      }
+      // document.getElementById(shuffle).onclick = shuffleNodes;
+      var a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      var s = shuffle(a);
+      console.log(shuffle(a));
+      console.log(s.sort());
+    </script>
+  </body>
+</html>
